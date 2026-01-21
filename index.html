@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inbox – Honest or Hoax</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background:#f1f3f4;
+  margin:0;
+}
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background:#ffffff;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.header {
+  padding:15px 20px;
+  border-bottom:1px solid #ddd;
+  font-size:20px;
+  font-weight:bold;
+}
+.email {
+  display:flex;
+  padding:14px 20px;
+  border-bottom:1px solid #eee;
+  cursor:pointer;
+}
+.email:hover {
+  background:#f6f8fc;
+}
+.sender {
+  width:220px;
+  font-weight:bold;
+}
+.subject {
+  flex:1;
+}
+.tag {
+  font-size:12px;
+  background:#e8f0fe;
+  color:#1a73e8;
+  padding:2px 6px;
+  border-radius:4px;
+  margin-left:8px;
+}
+.view {
+  display:none;
+  padding:25px;
+}
+.back {
+  color:#1a73e8;
+  cursor:pointer;
+  margin-bottom:15px;
+  display:inline-block;
+}
+.report {
+  margin-top:25px;
+  background:#d93025;
+  color:#fff;
+  padding:10px 16px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+.meta {
+  color:#555;
+  font-size:13px;
+  margin-bottom:15px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div id="inbox">
+  <div class="header">📬 Inbox — Honest or Hoax</div>
+
+  <div class="email" onclick="openMail(1)">
+    <div class="sender">Google Security</div>
+    <div class="subject">New sign-in from Chrome on Windows <span class="tag">Security</span></div>
+  </div>
+
+  <div class="email" onclick="openMail(2)">
+    <div class="sender">Microsoft Support</div>
+    <div class="subject">Unusual sign-in detected – action recommended <span class="tag">Account</span></div>
+  </div>
+
+  <div class="email" onclick="openMail(3)">
+    <div class="sender">School IT Services</div>
+    <div class="subject">Scheduled network maintenance tonight</div>
+  </div>
+
+  <div class="email" onclick="openMail(4)">
+    <div class="sender">Nova Capital Group</div>
+    <div class="subject">Exclusive invitation: Private investment opportunity <span class="tag">Opportunity</span></div>
+  </div>
+
+  <div class="email" onclick="openMail(5)">
+    <div class="sender">Amazon</div>
+    <div class="subject">Your order has shipped</div>
+  </div>
+
+  <div class="email" onclick="openMail(6)">
+    <div class="sender">Discord</div>
+    <div class="subject">New login detected <span class="tag">Security</span></div>
+  </div>
+</div>
+
+<div id="mail1" class="view">
+  <div class="back" onclick="goBack()">← Back to Inbox</div>
+  <h2>New sign-in from Chrome on Windows</h2>
+  <div class="meta">From: Google Security &lt;no-reply@accounts.google.com&gt;</div>
+  <p>Hi,</p>
+  <p>We noticed a new sign-in to your Google Account from a Chrome browser on Windows.</p>
+  <p>If this was you, no action is needed.</p>
+  <p>If you don’t recognize this activity, you can review it in your account security settings.</p>
+  <button class="report" onclick="report()">🚩 Report Hoax</button>
+</div>
+
+<div id="mail2" class="view">
+  <div class="back" onclick="goBack()">← Back to Inbox</div>
+  <h2>Unusual sign-in detected</h2>
+  <div class="meta">From: Microsoft Support &lt;alerts@rnicrosoft.com&gt;</div>
+  <p>Hello,</p>
+  <p>We detected a sign-in attempt from a new device associated with your Microsoft account.</p>
+  <p>Please review this activity to ensure uninterrupted access to your services.</p>
+  <p>
+    <a href="#">Review activity</a>
+  </p>
+  <p>This request will expire within 24 hours.</p>
+  <button class="report" onclick="report()">🚩 Report Hoax</button>
+</div>
+
+<div id="mail3" class="view">
+  <div class="back" onclick="goBack()">← Back to Inbox</div>
+  <h2>Scheduled network maintenance tonight</h2>
+  <div class="meta">From: School IT Services &lt;it@school.edu&gt;</div>
+  <p>Good afternoon,</p>
+  <p>We will be performing scheduled maintenance on internal systems tonight from 11:00 PM to 1:00 AM.</p>
+  <p>Some services may be temporarily unavailable during this time.</p>
+  <p>No action is required.</p>
+  <button class="report" onclick="report()">🚩 Report Hoax</button>
+</div>
+
+<div id="mail4" class="view">
+  <div class="back" onclick="goBack()">← Back to Inbox</div>
+  <h2>Private investment opportunity</h2>
+  <div class="meta">From: Nova Capital Group &lt;contact@novacapital-partners.com&gt;</div>
+  <p>Dear Investor,</p>
+  <p>We are extending a limited invitation to a select group for participation in a private growth fund.</p>
+  <p>Participants have historically seen consistent monthly returns.</p>
+  <p>Initial participation begins at $250.</p>
+  <p>
+    <a href="#">View confidential prospectus</a>
+  </p>
+  <button class="report" onclick="report()">🚩 Report Hoax</button>
+</div>
+
+<div id="mail5" class="view">
+  <div class="back" onclick="goBack()">← Back to Inbox</div>
+  <h2>Your order has shipped</h2>
+  <div class="meta">From: Amazon &lt;shipment-tracking@amazon.com&gt;</div>
+  <p>Your package is on the way.</p>
+  <p>Estimated delivery: Tomorrow by 10 PM.</p>
+  <p>You can track your shipment in your Amazon account.</p>
+  <button class="report" onclick="report()">🚩 Report Hoax</button>
+</div>
+
+<div id="mail6" class="view">
+  <div class="back" onclick="goBack()">← Back to Inbox</div>
+  <h2>New login detected</h2>
+  <div class="meta">From: Discord &lt;no-reply@discord.com&gt;</div>
+  <p>We noticed a login to your account from a new location.</p>
+  <p>If this was you, you can safely ignore this message.</p>
+  <p>If not, consider reviewing your security settings.</p>
+  <button class="report" onclick="report()">🚩 Report Hoax</button>
+</div>
+
+</div>
+
+<script>
+function openMail(id) {
+  document.getElementById("inbox").style.display = "none";
+  document.getElementById("mail" + id).style.display = "block";
+}
+function goBack() {
+  document.querySelectorAll(".view").forEach(v => v.style.display = "none");
+  document.getElementById("inbox").style.display = "block";
+}
+function report() {
+  alert("Hoax reported.");
+}
+</script>
+
+</body>
+</html>
